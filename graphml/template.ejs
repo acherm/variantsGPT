@@ -1,0 +1,23 @@
+digraph G {
+    s0 [label="s0", color="#000000", fontcolor="#000000"];
+    s1 [label="s1", color="#000000", fontcolor="#000000"];
+    s2 [label="s2", color="#000000", fontcolor="#000000"];
+    <% if (variant == 3) { %>
+      s3 [label="s3", color="#000000", fontcolor="#000000"];
+    <% } %>
+  
+    s0 -> s1 [label="findVillain", color="<%= variant == 1 ? 'blue' : 'black' %>", fontcolor="<%= variant == 1 ? 'blue' : 'black' %>"];
+    <% if (variant == 1 || variant == 3) { %>
+      s1 -> s2 [label="smash", color="blue", fontcolor="blue"];
+    <% } %>
+    <% if (variant == 2) { %>
+      s1 -> s2 [label="fireRocket", color="green", fontcolor="green"];
+      s2 -> s1 [label="reload", color="green", fontcolor="green"];
+    <% } %>
+    s2 -> s0 [label="finishHim", color="black", fontcolor="black"];
+    <% if (variant == 3) { %>
+      s2 -> s3 [label="throwHammer", color="red", fontcolor="red"];
+      s3 -> s2 [label="retrieveWeapon", color="red", fontcolor="red"];
+    <% } %>
+  }
+  

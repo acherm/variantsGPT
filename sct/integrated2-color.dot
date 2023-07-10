@@ -1,0 +1,55 @@
+digraph IntegratedModel {
+    // Common Elements
+    node [shape = circle];
+    entry [label = "Entry", shape = doublecircle];
+    idle [label = "Idle"];
+
+    // Variant 1
+    node [shape = box];
+    productPriceDisplayed1 [label = "Product price displayed"];
+    deliverDrink1 [label = "Deliver drink"];
+    displayMessage1 [label = "Display message"];
+    selectPaymentMethod1 [label = "Select payment method"];
+    typePIN1 [label = "Type PIN"];
+
+    // Variant 2
+    productPriceDisplayed2 [label = "Product price displayed"];
+    deliverDrink2 [label = "Deliver drink"];
+    displayMessage2 [label = "Display message"];
+    playRingTone [label = "Play ring tone"];
+
+    // Variant 3
+    productPriceDisplayed3 [label = "Product price displayed"];
+    insertCoin [label = "Insert coin"];
+
+    // Common to All Variants
+    node [color = black];
+    displayMessage [label = "Display message"];
+    idle -> displayMessage;
+
+    // Connections
+    entry -> idle;
+    idle -> productPriceDisplayed1 [label = "enterSodaCode", color = blue];
+    idle -> productPriceDisplayed2 [label = "enterCoffeeCode", color = green];
+    idle -> productPriceDisplayed3 [label = "enterTeaCode", color = red];
+    productPriceDisplayed1 -> displayMessage1 [label = "always", color = blue];
+    productPriceDisplayed1 -> idle [label = "cancel", color = blue];
+    displayMessage1 -> idle [label = "always", color = blue];
+    productPriceDisplayed1 -> selectPaymentMethod1 [label = "payByCreditCard", color = blue];
+    selectPaymentMethod1 -> typePIN1 [label = "payByCreditCard", color = blue];
+    typePIN1 -> typePIN1 [label = "wrongPIN", color = blue];
+    typePIN1 -> deliverDrink1 [label = "correctPIN", color = blue];
+    deliverDrink1 -> displayMessage1 [label = "message", color = blue];
+    productPriceDisplayed2 -> displayMessage2 [label = "always", color = green];
+    productPriceDisplayed2 -> idle [label = "cancel", color = green];
+    displayMessage2 -> idle [label = "always", color = green];
+    productPriceDisplayed2 -> playRingTone [label = "ringTone", color = green];
+    playRingTone -> idle [label = "always", color = green];
+    productPriceDisplayed2 -> selectPaymentMethod1 [label = "payByCreditCard", color = green];
+    selectPaymentMethod1 -> typePIN1 [label = "payByCreditCard", color = green];
+    productPriceDisplayed3 -> insertCoin [label = "always", color = red];
+    insertCoin -> insertCoin [label = "notEnough", color = red];
+    insertCoin -> deliverDrink2 [label = "enough", color = red];
+    deliverDrink2 -> displayMessage2 [label = "message", color = red];
+    displayMessage2 -> idle [label = "always", color = red];
+}

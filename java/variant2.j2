@@ -1,0 +1,92 @@
+package com.example;
+
+import java.util.List;
+
+public class Variant {
+
+    class Account {
+        private String id;
+        private double amount;
+        
+        {% if hasWithdrawalLimit %}
+        private double limit;
+        {% endif %}
+        
+        {% if supportsCurrency %}
+        private int currency;
+        {% endif %}
+
+        public void deposit(double amount) {}
+
+        public double getAmount() {
+            return 0.0;
+        } // corrected!
+        
+        {% if hasWithdrawalLimit %}
+        public void withdrawWithLimit(double amount) {}
+        {% else %}
+        public void withdrawWithoutLimit(double amount) {}
+        {% endif %}
+
+        {% if hasWithdrawalLimit %}
+        public double getLimit() {
+            return 0.0;
+        }
+
+        public void setLimit(double limit) {}
+        {% endif %}
+
+        {% if supportsCurrency %}
+        public int getCurrency() {
+            return 0;
+        }
+
+        public void setCurrency(int currency) {}
+        {% endif %}
+    }
+
+    class Bank {
+        {% if isSingleAccount %}
+        private Account accounts;
+        {% else %}
+        private List<Account> accounts;
+        {% endif %}
+        
+        {% if supportsCurrency %}
+        private Converter converter;
+        {% endif %}
+        
+        {% if hasConsortium %}
+        private Consortium cons;
+        {% endif %}
+
+        public void depositOnAccount(String id, double amount) {}
+
+        public void withdrawFromAccount(String id, double amount) {}
+
+        {% if supportsCurrency %}
+        public double convert(int curSource, int curTarget, double amount) {
+            return 0.0;
+        }
+        {% endif %}
+    }
+
+    class Client {
+        private String id;
+        private String name;
+    }
+
+    {% if supportsCurrency %}
+    class Converter {
+        public double conv(int curSource, int curTarget, double amount) {
+            return 0.0;
+        }
+    }
+    {% endif %}
+
+    {% if hasConsortium %}
+    class Consortium {
+        // Empty class as per the description.
+    }
+    {% endif %}
+}

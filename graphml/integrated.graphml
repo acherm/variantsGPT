@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:y="http://www.yworks.com/xml/graphml"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+    <key attr.name="nodeLabel" attr.type="string" for="node" id="nodeLabel"/>
+    <key attr.name="edgeLabel" attr.type="string" for="edge" id="edgeLabel"/>
+    <key for="node" id="d0" yfiles.type="nodegraphics"/>
+    <key for="edge" id="d1" yfiles.type="edgegraphics"/>
+    <graph id="G" edgedefault="directed">
+        <node id="s0">
+            <data key="nodeLabel">s0</data>
+            <data key="d0">
+                <y:ShapeNode>
+                    <y:Fill color="#000000" transparent="false"/>
+                </y:ShapeNode>
+            </data>
+        </node>
+        <node id="s1">
+            <data key="nodeLabel">s1</data>
+            <data key="d0">
+                <y:ShapeNode>
+                    <y:Fill color="#000000" transparent="false"/>
+                </y:ShapeNode>
+            </data>
+        </node>
+        <node id="s2">
+            <data key="nodeLabel">s2</data>
+            <data key="d0">
+                <y:ShapeNode>
+                    <y:Fill color="#000000" transparent="false"/>
+                </y:ShapeNode>
+            </data>
+        </node>
+        <node id="s3">
+            <data key="nodeLabel">s3</data>
+            <data key="d0">
+                <y:ShapeNode>
+                    <y:Fill color="#000000" transparent="false"/>
+                </y:ShapeNode>
+            </data>
+        </node>
+        <edge source="s0" target="s1">
+            <data key="edgeLabel">findVillain</data>
+            <data key="d1">
+                <y:PolyLineEdge>
+                    <y:EdgeLabel textColor="#0000FF">findVillain</y:EdgeLabel>
+                    <y:LineStyle color="#0000FF" type="line" width="1.0"/>
+                </y:PolyLineEdge>
+            </data>
+        </edge>
+        <edge source="s1" target="s2">
+            <data key="edgeLabel">smash</data>
+            <data key="d1">
+                <y:PolyLineEdge>
+                    <y:EdgeLabel textColor="#0000FF">smash</y:EdgeLabel>
+                    <y:LineStyle color="#0000FF" type="line" width="1.0"/>
+                </y:PolyLineEdge>
+            </data>
+        </edge>
+        <edge source="s1" target="s2">
+            <data key="edgeLabel">fireRocket</data>
+            <data key="d1">
+                <y:PolyLineEdge>
+                    <y:EdgeLabel textColor="#00FF00">fireRocket</y:EdgeLabel>
+                    <y:LineStyle color="#00FF00" type="line" width="1.0"/>
+                </y:PolyLineEdge>
+            </data>
+        </edge>
+        <edge source="s2" target="s0">
+            <data key="edgeLabel">finishHim</data>
+            <data key="d1">
+                <y:PolyLineEdge>
+                    <y:EdgeLabel textColor="#000000">finishHim</y:EdgeLabel>
+                    <y:LineStyle color="#000000" type="line" width="1.0"/>
+                </y:PolyLineEdge>
+            </data>
+        </edge>
+        <edge source="s2" target="s1">
+            <data key="edgeLabel">reload</data>
+            <data key="d1">
+                <y:PolyLineEdge>
+                    <y:EdgeLabel textColor="#00FF00">reload</y:EdgeLabel>
+                    <y:LineStyle color="#00FF00" type="line" width="1.0"/>
+                </y:PolyLineEdge>
+            </data>
+        </edge>
+        <edge source="s2" target="s3">
+            <data key="edgeLabel">throwHammer</data>
+            <data key="d1">
+                <y:PolyLineEdge>
+                    <y:EdgeLabel textColor="#FF0000">throwHammer</y:EdgeLabel>
+                    <y:LineStyle color="#FF0000" type="line" width="1.0"/>
+                </y:PolyLineEdge>
+            </data>
+        </edge>
+        <edge source="s3" target="s2">
+            <data key="edgeLabel">retrieveWeapon</data>
+            <data key="d1">
+                <y:PolyLineEdge>
+                    <y:EdgeLabel textColor="#FF0000">retrieveWeapon</y:EdgeLabel>
+                    <y:LineStyle color="#FF0000" type="line" width="1.0"/>
+                </y:PolyLineEdge>
+            </data>
+        </edge>
+    </graph>
+</graphml>

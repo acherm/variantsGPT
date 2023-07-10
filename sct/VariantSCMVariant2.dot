@@ -1,0 +1,25 @@
+
+digraph G {
+    node [shape=circle, fontname=Arial];
+    edge [fontname=Arial];
+
+    /* Common States - Black color */
+    "Idle" [color=black];
+    "Product price displayed" [color=black];
+    "Select payment method" [color=black];
+    "Deliver drink" [color=black];
+    "Display message" [color=black];
+
+    
+    /* Variant2 States - Green color */
+    "Play ring tone" [color=green];
+    /* Transitions for Variant2 */
+    "Idle" -> "Product price displayed" [label="enterSodaCode\nenterCoffeeCode\nenterTeaCode", color=green];
+    "Product price displayed" -> "Select payment method" [label="always", color=green];
+    "Select payment method" -> "Play ring tone" [label="ringTone", color=green];
+    "Play ring tone" -> "Deliver drink" [label="always", color=green];
+    
+    /* Common transitions for all variants */
+    "Select payment method" -> "Display message" [label="cancel", color=black];
+    "Product price displayed" -> "Display message" [label="message", color=black];
+}

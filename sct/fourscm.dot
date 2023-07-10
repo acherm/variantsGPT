@@ -1,0 +1,40 @@
+digraph G {
+    /* Define states (nodes) */
+    Idle [shape = circle];
+    ProductPriceDisplayed [shape = circle];
+    SelectPaymentMethod [shape = circle];
+    TypePIN [shape = circle, color = blue];  // Variant1
+    DeliverDrink [shape = circle, color = green];  // Variant2
+    DisplayMessage [shape = circle, color = red];  // Variant3
+    PlayRingTone [shape = circle, color = purple];  // Variant4
+    EnterCash [shape = circle, color = purple];  // Variant4
+
+    /* Define transitions (edges) */
+    /* From Idle */
+    Idle -> ProductPriceDisplayed [label = "enterSodaCode / enterCoffeeCode / enterTeaCode"];
+    Idle -> Idle [label = "cancel / message / ringTone / always"];
+    
+    /* From ProductPriceDisplayed */
+    ProductPriceDisplayed -> SelectPaymentMethod [label = "always"];
+    ProductPriceDisplayed -> Idle [label = "cancel"];
+    
+    /* From SelectPaymentMethod */
+    SelectPaymentMethod -> TypePIN [label = "payByCreditCard", color = blue];  // Variant1
+    SelectPaymentMethod -> EnterCash [label = "payByCash", color = purple];  // Variant4
+
+    /* From TypePIN */
+    TypePIN -> DeliverDrink [label = "correctPIN", color = blue];  // Variant1
+    TypePIN -> TypePIN [label = "wrongPIN", color = blue];  // Variant1
+    
+    /* From EnterCash */
+    EnterCash -> DeliverDrink [label = "enough", color = purple];  // Variant4
+    EnterCash -> EnterCash [label = "notEnough", color = purple];  // Variant4
+    
+    /* From DeliverDrink */
+    DeliverDrink -> DisplayMessage [label = "message", color = green];  // Variant2
+    DeliverDrink -> PlayRingTone [label = "ringTone", color = green];  // Variant2
+    
+    /* From DisplayMessage and PlayRingTone */
+    DisplayMessage -> Idle [label = "always", color = red];  // Variant3
+    PlayRingTone -> Idle [label = "always", color = purple];  // Variant4
+}

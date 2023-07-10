@@ -1,0 +1,50 @@
+digraph IntegratedModel {
+    // Common Elements
+    node [shape = circle];
+    entry [label = "Entry", shape = doublecircle];
+    idle [label = "Idle"];
+
+    // Variant 1
+    node [shape = box];
+    productPriceDisplayed1 [label = "Product price displayed"];
+    deliverDrink1 [label = "Deliver drink"];
+    displayMessage1 [label = "Display message"];
+    selectPaymentMethod1 [label = "Select payment method"];
+    typePIN1 [label = "Type PIN"];
+
+    // Variant 2
+    productPriceDisplayed2 [label = "Product price displayed"];
+    deliverDrink2 [label = "Deliver drink"];
+    displayMessage2 [label = "Display message"];
+    playRingTone [label = "Play ring tone"];
+
+    // Variant 3
+    productPriceDisplayed3 [label = "Product price displayed"];
+    insertCoin [label = "Insert coin"];
+
+    // Connections
+    entry -> idle;
+    idle -> productPriceDisplayed1 [label = "enterSodaCode"];
+    idle -> productPriceDisplayed2 [label = "enterCoffeeCode"];
+    idle -> productPriceDisplayed3 [label = "enterTeaCode"];
+    productPriceDisplayed1 -> displayMessage1 [label = "always"];
+    productPriceDisplayed1 -> idle [label = "cancel"];
+    displayMessage1 -> idle [label = "always"];
+    productPriceDisplayed1 -> selectPaymentMethod1 [label = "payByCreditCard"];
+    selectPaymentMethod1 -> typePIN1 [label = "payByCreditCard"];
+    typePIN1 -> typePIN1 [label = "wrongPIN"];
+    typePIN1 -> deliverDrink1 [label = "correctPIN"];
+    deliverDrink1 -> displayMessage1 [label = "message"];
+    productPriceDisplayed2 -> displayMessage2 [label = "always"];
+    productPriceDisplayed2 -> idle [label = "cancel"];
+    displayMessage2 -> idle [label = "always"];
+    productPriceDisplayed2 -> playRingTone [label = "ringTone"];
+    playRingTone -> idle [label = "always"];
+    productPriceDisplayed2 -> selectPaymentMethod1 [label = "payByCreditCard"];
+    selectPaymentMethod1 -> typePIN1 [label = "payByCreditCard"];
+    productPriceDisplayed3 -> insertCoin [label = "always"];
+    insertCoin -> insertCoin [label = "notEnough"];
+    insertCoin -> deliverDrink2 [label = "enough"];
+    deliverDrink2 -> displayMessage2 [label = "message"];
+    displayMessage2 -> idle [label = "always"];
+}

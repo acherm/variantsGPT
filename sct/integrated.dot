@@ -1,0 +1,38 @@
+digraph G {
+    node [shape=circle, fontname=Arial];
+    edge [fontname=Arial];
+
+    /* Common States - Black color */
+    "Idle" [color=black];
+    "Product price displayed" [color=black];
+    "Select payment method" [color=black];
+    "Deliver drink" [color=black];
+    "Display message" [color=black];
+
+    /* Variant1 States - Blue color */
+    "Type PIN (V1)" [color=blue];
+
+    /* Variant2 States - Green color */
+    "Play ring tone (V2)" [color=green];
+
+    /* Variant3 States - Red color */
+    "Insert money (V3)" [color=red];
+
+    /* Transitions */
+    // "Idle" -> "Product price displayed" [label="enterSodaCode\nenterCoffeeCode\nenterTeaCode", color=blue:green:red];
+    "Idle" -> "Product price displayed" [label="enterSodaCode\nenterCoffeeCode\nenterTeaCode", color=orange];
+    // "Product price displayed" -> "Select payment method" [label="always", color=blue:green:red];
+    "Product price displayed" -> "Select payment method" [label="always", color=orange];
+    "Select payment method" -> "Type PIN (V1)" [label="payByCreditCard (V1)", color=blue];
+    "Select payment method" -> "Insert money (V3)" [label="payByCash (V3)", color=red];
+    "Type PIN (V1)" -> "Deliver drink" [label="correctPIN", color=blue];
+    "Type PIN (V1)" -> "Display message" [label="wrongPIN", color=blue];
+    "Insert money (V3)" -> "Deliver drink" [label="enough", color=red];
+    "Insert money (V3)" -> "Display message" [label="notEnough", color=red];
+   // "Select payment method" -> "Display message" [label="cancel", color=blue:green:red];
+   "Select payment method" -> "Display message" [label="cancel", color=orange];
+    // "Product price displayed" -> "Display message" [label="message", color=blue:green:red];
+    "Product price displayed" -> "Display message" [label="message", color=orange];
+    "Select payment method" -> "Play ring tone (V2)" [label="ringTone (V2)", color=green];
+    "Play ring tone (V2)" -> "Deliver drink" [label="always (V2)", color=green];
+}

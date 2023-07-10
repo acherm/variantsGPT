@@ -1,0 +1,14 @@
+digraph G {
+    s0 [label="s0"];
+    s1 [label="s1"];
+    s2 [label="s2"];
+    s3 [label="s3"];
+
+    s0 -> s1 [label="findVillain"];
+    s1 -> s2 [label="smash"];
+    s1 -> s2 [label="fireRocket"];
+    s2 -> s1 [label="reload"];
+    s2 -> s3 [label="throwHammer"];
+    s3 -> s2 [label="retrieveWeapon"];
+    s2 -> s0 [label="finishHim"];
+}

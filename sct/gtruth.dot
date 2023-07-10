@@ -1,0 +1,16 @@
+digraph statechart {
+  _9wkZh39lEeO38f7pJZDqVw [label="Idle"];
+  _JSFU4H9mEeO38f7pJZDqVw [label="Product price displayed"];
+  _O6DC8H9mEeO38f7pJZDqVw [label="Deliver drink"];
+  _VTgfYH9mEeO38f7pJZDqVw [label="Display message"];
+  _iENxwH9mEeO38f7pJZDqVw [label="Select payment method"];
+  _BI5KwH9nEeO38f7pJZDqVw [label="Type PIN"];
+  
+  _9wkZh39lEeO38f7pJZDqVw -> _JSFU4H9mEeO38f7pJZDqVw [label="enterSodaCode"];
+  _JSFU4H9mEeO38f7pJZDqVw -> _9wkZh39lEeO38f7pJZDqVw [label="cancel"];
+  _O6DC8H9mEeO38f7pJZDqVw -> _VTgfYH9mEeO38f7pJZDqVw [label="message"];
+  _VTgfYH9mEeO38f7pJZDqVw -> _9wkZh39lEeO38f7pJZDqVw [label="always"];
+  _iENxwH9mEeO38f7pJZDqVw -> _BI5KwH9nEeO38f7pJZDqVw [label="payByCreditCard"];
+  _BI5KwH9nEeO38f7pJZDqVw -> _BI5KwH9nEeO38f7pJZDqVw [label="wrongPIN"];
+  _BI5KwH9nEeO38f7pJZDqVw -> _O6DC8H9mEeO38f7pJZDqVw [label="correctPIN"];
+}
