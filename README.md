@@ -26,3 +26,5 @@ For each case, we share a directory (eg `uml`) with:
  * sessions (including replications with same or variants of prompts)
  * artefacts of the variants (Java, UML, GraphML, SCM, PNG)
  * synthesized code (Python generator and templates, DOT files, etc.)
+
+Paper: https://inria.hal.science/hal-04160693/ 
